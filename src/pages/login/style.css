@@ -103,7 +103,7 @@ label {
 }
 @media only screen and (min-width: 576px) {
     .bg_form::before {
-        transform: rotateX(38deg) scale(1.3) translateY(-19%);
+        transform: rotateX(38deg) scale(1.3) translateY(-17%);
     }
 }
 /* form style ends */
@@ -128,6 +128,7 @@ label {
 /* others */
 .w_fit { width: fit-content; }
 .border_black { border: 1px solid var(--black); }
+.border_green { border: 1px solid var(--green); }
 .text_black { color: var(--black); }
 .text_green { color: var(--green); }
 .bg_green { background-color: var(--green); }
@@ -158,4 +159,7 @@ label {
 }
 .icon_sm {
     height: calc(var(--sm) + 5px);
+}
+button {
+    min-height: 40px;
 }
