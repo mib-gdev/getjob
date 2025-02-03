@@ -7,11 +7,15 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import './index.css';
 import App from './App';
 
+import { GoogleOAuthProvider } from '@react-oauth/google';
 
+const clientId = 'client id';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+     <GoogleOAuthProvider clientId={clientId}>
+        <App />
+     </GoogleOAuthProvider>
   </React.StrictMode>
 );
 
