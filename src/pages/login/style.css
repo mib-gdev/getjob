@@ -1,17 +1,3 @@
-:root {
-    --lightGreen: rgba(234, 255, 244, 0.9);
-    --black: rgb(0, 0, 0);
-    --green: rgba(0, 191, 98, 1);
-    --xl: calc(1rem + 8px);
-    --lg: calc(1rem + 1px);
-    --md: calc(1rem - 1px);
-    --sm: calc(1rem - 3px);
-    --xs: calc(1rem + 1px);
-}
-body {
-    color: var(--black);
-}
-
 /* pseudo elements for styling */
 .login_bg{
     position: relative;
@@ -82,10 +68,6 @@ body {
     display: flex;
     align-items: center;
 }
-.inp_style:hover,
-label {
-    cursor: pointer;
-}
 .inp_style input {
     border: 0;
     width: 100%;
@@ -112,59 +94,3 @@ label {
     }
 }
 /* form style ends */
-/* font sizes start */
-.fs_xl {
-    font-size: var(--xl);
-}
-.fs_lg {
-    font-size: var(--lg);
-}
-.fs_md {
-    font-size: var(--md);
-}
-.fs_sm {
-    font-size: var(--sm);
-}
-.fs_xs {
-    font-size: var(--xs);
-}
-/* font sizes ends */
-
-/* others */
-.w_fit { width: fit-content; }
-.border_black { border: 1px solid var(--black); }
-.border_green { border: 1px solid var(--green); }
-.text_black { color: var(--black); }
-.text_green { color: var(--green); }
-.bg_green { background-color: var(--green); }
-.flex_center {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-@media only screen and (min-width: 768px) {
-    .px_md_6 {
-        padding-left: 8rem !important;
-        padding-right: 8rem !important;
-    }
-    .ps_md_6 {
-        padding-left: 8rem !important;
-    }
-}
-.py_6 {
-    padding-top: 8rem;
-    padding-bottom: 8rem;
-}
-.my_4-5 {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-}
-.icon_md {
-    height: calc(var(--md) + 5px);
-}
-.icon_sm {
-    height: calc(var(--sm) + 5px);
-}
-button {
-    min-height: 40px;
-}

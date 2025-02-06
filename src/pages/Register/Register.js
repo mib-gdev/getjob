@@ -1,5 +1,8 @@
 export default function Register() {
     return(
-        <>Register page</>
+        <>
+            <button>ok</button>
+            <button>ok</button>
+        </>
     );
 }

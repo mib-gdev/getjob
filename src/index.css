@@ -1,66 +1,63 @@
-/* Meyer’s Reset */
-*,
-*::before,
-*::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+:root {
+  /* color variables*/
+  --lightGreen: #E7FFF3;
+  --black: rgb(0, 0, 0);
+  --green: #00BF62;
+  --darkGreen: #0A7140;
+  /* size variables*/
+  --xl: calc(1rem + 8px);
+  --lg: calc(1rem + 1px);
+  --md: calc(1rem - 1px);
+  --sm: calc(1rem - 3px);
+  --xs: calc(1rem + 1px);
 }
 
-html {
-  line-height: 1.15;
-  -webkit-text-size-adjust: 100%; /* Prevent font scaling in iOS */
-}
+/* global imports */
+@import '../src/assets/styles/font.css';
+@import '../src/assets/styles/reset.css';
 
 body {
+  /* global font */
   font-family: "Noto Sans", serif;
-  font-weight: 600;
-  line-height: 1.5;
+  /* global color */
+  color: var(--black);
 }
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-weight: 700;
-  margin: 0;
+/* size */
+.icon_md {
+  height: calc(var(--md) + 5px);
 }
-
-ol,
-ul {
-  list-style: none;
+.icon_sm {
+  height: calc(var(--sm) + 5px);
 }
+.w_fit { width: fit-content; }
+/* color styles */
+.border_black { border: 1px solid var(--black); }
+.border_green { border: 1px solid var(--green); }
+.text_black { color: var(--black); }
+.text_green { color: var(--green); }
+.bg_green { background-color: var(--green); }
 
-a {
-  text-decoration: none;
+/* padding & margin */
+@media only screen and (min-width: 768px) {
+  .px_md_6 {
+      padding-left: 8rem !important;
+      padding-right: 8rem !important;
+  }
+  .ps_md_6 {
+      padding-left: 8rem !important;
+  }
 }
-
-img {
-  max-width: 100%;
-  height: auto;
+.py_6 {
+  padding-top: 8rem;
+  padding-bottom: 8rem;
 }
-
-button,
-input,
-select,
-textarea {
-  font-family: inherit;
-  font-size: inherit;
-  line-height: inherit;
+.my_4-5 {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
-
-/* reset for bootstrap */
-button:focus-visible,
-input:focus-visible,
-select:focus-visible,
-textarea:focus-visible,
-
-button:focus,
-input:focus,
-select:focus,
-textarea:focus {
-  outline: none !important;
-  box-shadow: none !important;
+/* others */
+.flex_center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

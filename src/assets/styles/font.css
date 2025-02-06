@@ -1,0 +1,18 @@
+/* font sizes start */
+.fs_xl {
+    font-size: var(--xl);
+  }
+.fs_lg {
+    font-size: var(--lg);
+}
+.fs_md {
+    font-size: var(--md);
+}
+.fs_sm {
+    font-size: var(--sm);
+}
+.fs_xs {
+    font-size: var(--xs);
+}
+/* font sizes ends */
+  
