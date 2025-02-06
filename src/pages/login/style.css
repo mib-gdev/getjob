@@ -94,3 +94,6 @@
     }
 }
 /* form style ends */
+nav {
+    z-index: 1;
+}

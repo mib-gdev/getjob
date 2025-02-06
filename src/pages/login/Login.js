@@ -3,8 +3,10 @@ import { Form, Input, Checkbox,Button, message } from 'antd';
 import { useGoogleLogin } from '@react-oauth/google';
 import './style.css';
 import { Link } from 'react-router-dom';
+import { useNavHeightContext } from '../../context/NavContext';
 
 export default function Login() {
+    const { navHeight } = useNavHeightContext();
     const isMobile = useMediaQuery({ query: '(max-width: 576px)' });
     const inputClass = "fs_sm inp_style rounded px-4 ps_md_6 pe-4 py-2";
     const [form] = Form.useForm();
@@ -25,7 +27,9 @@ export default function Login() {
         onFailure: tokenError => console.log("Google Login Error", tokenError)
     });
     return(
-        <div className='login_bg'>
+        <div
+            className='login_bg position-absolute top-0 start-0 end-0'
+            style={{ paddingTop: navHeight + 'px' }}>
             <div className='container-xxl flex_center flex-column h-100'>
                 {/* the white circle */}
                 <div className='bg_form w_fit mb-auto mt-5 mt-sm-auto mx-5 mx-md-auto p-2 p-sm-0'>

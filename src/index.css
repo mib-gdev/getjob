@@ -11,10 +11,96 @@
   --sm: calc(1rem - 3px);
   --xs: calc(1rem + 1px);
 }
+/* Meyer’s Reset */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-/* global imports */
-@import '../src/assets/styles/font.css';
-@import '../src/assets/styles/reset.css';
+html {
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%; /* Prevent font scaling in iOS */
+}
+
+body {
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+  margin: 0;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+/* reset for bootstrap */
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+/* custom */
+.inp_style:hover,
+label {
+    cursor: pointer;
+}
+button { min-height: 40px; }
+/* resets end */
+
+/* font sizes start */
+.fs_xl {
+  font-size: var(--xl);
+}
+.fs_lg {
+  font-size: var(--lg);
+}
+.fs_md {
+  font-size: var(--md);
+}
+.fs_sm {
+  font-size: var(--sm);
+}
+.fs_xs {
+  font-size: var(--xs);
+}
+/* font sizes ends */
 
 body {
   /* global font */
