@@ -1,0 +1,26 @@
+.header_bg {
+    position: relative;
+}
+.header_bg::before,
+.header_bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        0deg,  hsla(150, 100%, 95%, 0.1) 0%, 
+        hsla(151, 100%, 37%, 0.1) 100%);
+    background: -moz-linear-gradient
+        (0deg,  hsla(150, 100%, 95%, 0.1) 0%, 
+        hsla(151, 100%, 37%, 0.1) 100%);
+    background: -webkit-linear-gradient
+        (0deg,  hsla(150, 100%, 95%, 0.1) 0%, 
+        hsla(151, 100%, 37%, 0.1) 100%);
+}
+.header_bg::before {
+    right: 75%;
+    border-top-right-radius: 100%;
+}
+.header_bg::after {
+    left: 75%;
+    border-top-left-radius: 100%;
+}

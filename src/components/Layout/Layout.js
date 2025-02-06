@@ -2,16 +2,16 @@ import { Outlet } from 'react-router-dom';
 import { 
     useState
 } from 'react';
-import Nav from './Nav';
+import CustomNav from './Nav';
 import Footer from './Footer';
 
 export default function Layout() {
-    // Set the notOnUserAuthPage to true,
+    // Set the notOnUserAuthPage to false,
     // when rendering login\register page.
-    const [notOnUserAuthPage, setNotOnUserAuthPage] = useState(false);
+    const [notOnUserAuthPage, setNotOnUserAuthPage] = useState(true);
     return(
         <>
-            <Nav />
+            <CustomNav />
                 <Outlet />
             {notOnUserAuthPage &&
                 <Footer />

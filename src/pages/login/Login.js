@@ -9,6 +9,7 @@ export default function Login() {
     const { navHeight } = useNavHeightContext();
     const isMobile = useMediaQuery({ query: '(max-width: 576px)' });
     const inputClass = "fs_sm inp_style rounded px-4 ps_md_6 pe-4 py-2";
+    
     const [form] = Form.useForm();
 
     const onFinish = (values) => {

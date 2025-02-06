@@ -1,15 +1,29 @@
 import { Link } from 'react-router-dom';
 import { 
-    useEffect
+    useEffect,
+    useMemo,
+    useState
 } from 'react';
 import { useNavHeightContext } from '../../context/NavContext';
+import {
+    Button,
+    Container,
+    Form,
+    Nav,
+    Navbar,
+    NavDropdown,
+    Offcanvas,
+    Image,
+    ButtonGroup,
+    Stack
+} from 'react-bootstrap';
 
-export default function Nav() {
+const OnUserAuthPage = () => {
     const { setNavHeight, navRef } = useNavHeightContext();
     useEffect(() => {
         setNavHeight(navRef.current.offsetHeight + 13);
     }, []);
-    return(
+    return (
         <nav
             ref={navRef}
             className="container-xxl py-2">
@@ -34,4 +48,92 @@ export default function Nav() {
             </div>
         </nav>
     );
+}
+
+const NotOnUserAuthPage = () => {
+    const linkBtnClass = useMemo(() => "border_green p-2 fw-light fs_md rounded", []);
+    const navLinkClass = useMemo(() => "text_black fw-medium fs_md py-2", []);
+    return(
+        <>
+        {['lg',].map((expand) => (
+            <Navbar
+                key={expand}
+                expand={expand}
+                className=""
+            >
+                <Container fluid='xxl'>
+                    <Navbar.Brand href="#">
+                        <Image src="/logo192.png" />
+                    </Navbar.Brand>
+                    <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
+                    <Navbar.Offcanvas
+                        id={`offcanvasNavbar-expand-${expand}`}
+                        aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`}
+                        placement="end"
+                    >
+                        <Offcanvas.Header closeButton>
+                            <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>
+                                <Image src="/logo192.png" />
+                            </Offcanvas.Title>
+                        </Offcanvas.Header>
+                        <Offcanvas.Body>
+                            <Nav
+                                className="justify-content-end justify-content-lg-center align-items-center flex-grow-1 gap-5 gap-lg-5">
+                                <Link
+                                    to="/"
+                                    className={navLinkClass}
+                                >
+                                    Necə işləyir?</Link>
+                                <Link
+                                    to="/"
+                                    className={navLinkClass}
+                                >
+                                    İşçi Tapın</Link>
+                                <Link
+                                    to="/"
+                                    className={navLinkClass}
+                                >
+                                    İş axtarın</Link>
+                                <NavDropdown
+                                    title="AZE"
+                                    id={`offcanvasNavbarDropdown-expand-${expand}`}
+                                    className={navLinkClass}
+                                >
+                                    <NavDropdown.Item href="#action3">AZE</NavDropdown.Item>
+                                    <NavDropdown.Item href="#action4">ENG</NavDropdown.Item>
+                                    <NavDropdown.Item href="#action5">RUS</NavDropdown.Item>
+                                </NavDropdown>
+                            </Nav>
+                            <Stack
+                                direction='horizontal'
+                                gap={2}
+                            >
+                                <Link
+                                    to="/login"
+                                    className={`${linkBtnClass} text-white bg_green`}
+                                >
+                                    Daxil ol</Link>
+                                <Link
+                                    to="/register"
+                                    className={`${linkBtnClass} text_green bg-white`}
+                                >
+                                    Qeydiyyat</Link>
+                            </Stack>
+                        </Offcanvas.Body>
+                    </Navbar.Offcanvas>
+                </Container>
+            </Navbar>
+        ))}
+    </>
+    );
+}
+export default function CustomNav() {
+    // Set the notOnUserAuthPage to false,
+    // when rendering login\register page.
+    const [notOnUserAuthPage, setNotOnUserAuthPage] = useState(true);
+    return (
+        <>
+            {notOnUserAuthPage? <NotOnUserAuthPage />: <OnUserAuthPage />}
+        </>
+    )
 }
