@@ -19,13 +19,8 @@ import {
 } from 'react-bootstrap';
 
 const OnUserAuthPage = () => {
-    const { setNavHeight, navRef } = useNavHeightContext();
-    useEffect(() => {
-        setNavHeight(navRef.current.offsetHeight + 13);
-    }, []);
     return (
         <nav
-            ref={navRef}
             className="container-xxl py-2">
             <div className='d-flex justify-content-between'>
                 <Link to="/">
@@ -127,13 +122,24 @@ const NotOnUserAuthPage = () => {
     </>
     );
 }
-export default function CustomNav() {
+export default function CustomNav({ userState }) {
     // Set the notOnUserAuthPage to false,
     // when rendering login\register page.
-    const [notOnUserAuthPage, setNotOnUserAuthPage] = useState(true);
+    const { setNavHeight, navRef } = useNavHeightContext();
+    useEffect(() => {
+        setNavHeight(navRef.current.offsetHeight + 1);
+    }, []);
     return (
-        <>
-            {notOnUserAuthPage? <NotOnUserAuthPage />: <OnUserAuthPage />}
-        </>
+        <div className='custom_nav' ref={navRef}>
+            {/* temporary code starts */}
+            {userState === 'authorizing' ? (
+                <OnUserAuthPage />
+            ) : userState === 'unauthorized' ? (
+                <NotOnUserAuthPage />
+            ) : (
+                <NotOnUserAuthPage />
+            )}
+            {/* temporary code ends */}
+        </div>
     )
 }

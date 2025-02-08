@@ -3,9 +3,10 @@
 @import "~slick-carousel/slick/slick-theme.css";
 :root {
   /* color variables*/
-  --lightGreen: #E7FFF3;
+  --lightGreen: rgba(231,255,243,1);
   --black: rgb(0, 0, 0);
-  --green: #00BF62;
+  --borderBlack: rgba(0, 0, 0, 0.5);
+  --green: rgba(0,191,98,1);
   --darkGreen: #0A7140;
   /* size variables*/
   --xl: calc(1rem + 8px);
@@ -29,6 +30,10 @@ html {
 }
 
 body {
+  /* global font */
+  font-family: "Mulish", serif;
+  /* global color */
+  color: var(--black);
   font-weight: 600;
   line-height: 1.5;
 }
@@ -105,12 +110,6 @@ button { min-height: 40px; }
 }
 /* font sizes ends */
 
-body {
-  /* global font */
-  font-family: "Noto Sans", serif;
-  /* global color */
-  color: var(--black);
-}
 /* size */
 .icon_md {
   height: calc(var(--md) + 5px);
@@ -165,3 +164,14 @@ body {
   align-items: center;
 }
 .slick-slider { overflow: hidden; }
+.vstack:focus-visible {
+  outline: none;
+}
+/* navbar style */
+.custom_nav {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 1;
+}

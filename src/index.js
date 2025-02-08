@@ -10,6 +10,7 @@ import App from './App';
 
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import { NavHeightProvider } from './context/NavContext';
+import { UserStateProvider } from './context/UserStateContext';
 
 const clientId = 'client id';
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -17,7 +18,9 @@ root.render(
   <React.StrictMode>
      <GoogleOAuthProvider clientId={clientId}>
          <NavHeightProvider>
-            <App />
+            <UserStateProvider> {/* temporary code */}
+               <App />
+            </UserStateProvider> {/* temporary code */}
          </NavHeightProvider>
      </GoogleOAuthProvider>
   </React.StrictMode>

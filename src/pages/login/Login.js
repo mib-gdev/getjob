@@ -4,8 +4,17 @@ import { useGoogleLogin } from '@react-oauth/google';
 import './style.css';
 import { Link } from 'react-router-dom';
 import { useNavHeightContext } from '../../context/NavContext';
+import { useUserStateContext } from '../../context/UserStateContext';
+import { useEffect } from 'react';
 
 export default function Login() {
+    // temporary code starts
+    const { setUserState } = useUserStateContext();
+    useEffect(() => {
+        setUserState('authorizing');
+    }, []);
+    // temporary code ends
+
     const { navHeight } = useNavHeightContext();
     const isMobile = useMediaQuery({ query: '(max-width: 576px)' });
     const inputClass = "fs_sm inp_style rounded px-4 ps_md_6 pe-4 py-2";

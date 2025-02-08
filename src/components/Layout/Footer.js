@@ -1,5 +1,5 @@
 export default function Footer() {
     return(
-        <>Footer</>
+        <div style={{height: '100vh'}}>Footer</div>
     );
 }

@@ -10,8 +10,19 @@ import {
 } from 'react-bootstrap';
 import Slider from 'react-slick';
 import './style.css';
+import { useNavHeightContext } from '../../context/NavContext';
+import { useEffect } from 'react';
+import { useUserStateContext } from '../../context/UserStateContext';
 
 export default function Header() {
+    // temporary code starts
+    const { setUserState } = useUserStateContext();
+    useEffect(() => {
+        setUserState('unauthorized');
+    }, []);
+    // temporary code ends
+
+    const { navHeight } = useNavHeightContext();
     const inputClass = "fs_sm rounded-5 px-3 py-2 border-0 text_black placeholder_black";
     const [form] = Form.useForm();
 
@@ -28,6 +39,9 @@ export default function Header() {
 
     const settings = {
         infinite: true,
+        speed: 500,         // Transition speed
+        autoplay: true,     // Enable autoplay
+        autoplaySpeed: 2000,// Speed between slide transitions (in ms)
         centerMode: false,  // Disable center mode if not needed
         slidesToShow: 5,    // Default: 5 items displayed
         slidesToScroll: 1,  // Scroll one item at a time
@@ -66,11 +80,13 @@ export default function Header() {
             <Row>
                 <Col
                     xs={12}
-                    className="d-flex flex-column"
-                    style={{ height: "85vh" }}
-                >
+                    className="d-flex flex-column pb-4 pb-lg-5"
+                    style={{
+                        height: "100vh",
+                        paddingTop: navHeight + 'px' 
+                    }}>
                     <h3
-                        className="fs_xxl fw-bold shadow_text text-center my-5"
+                        className="fs_xxl fw-bold shadow_text text-center my-4 my-lg-5"
                     >
                         Layihəniz üçün ideal freelancerləri işə götürün
                     </h3>
@@ -123,7 +139,7 @@ export default function Header() {
                     </Form>
                     <Slider
                         {...settings}
-                        className="mt-auto"
+                        className="mt-auto pt-5 px-4 px-lg-5"
                     >
                         <Stack className='flex_center'>
                             <Image
@@ -151,7 +167,7 @@ export default function Header() {
                         </Stack>
                         <Stack className='flex_center'>
                             <Image
-                                className="w-75 h-auto"
+                                className="w-50 h-auto"
                                 src="acc-logo.png"
                                 alt="acc" />
                         </Stack>

@@ -4,16 +4,15 @@ import {
 } from 'react';
 import CustomNav from './Nav';
 import Footer from './Footer';
+import { useUserStateContext } from '../../context/UserStateContext';
 
 export default function Layout() {
-    // Set the notOnUserAuthPage to false,
-    // when rendering login\register page.
-    const [notOnUserAuthPage, setNotOnUserAuthPage] = useState(true);
+    const { userState } = useUserStateContext(); //  temporary code
     return(
         <>
-            <CustomNav />
+            <CustomNav userState={userState} />
                 <Outlet />
-            {notOnUserAuthPage &&
+            {userState !== 'authorizing' && //  temporary code
                 <Footer />
             }
         </>
