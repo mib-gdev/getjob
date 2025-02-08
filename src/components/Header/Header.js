@@ -1,6 +1,10 @@
 import { Form, Input, Button, message } from 'antd';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
+import {
+    faMagnifyingGlass,
+    faBriefcase,
+    faGraduationCap
+} from '@fortawesome/free-solid-svg-icons'
 import {
     Container,
     Row,
@@ -11,7 +15,7 @@ import {
 import Slider from 'react-slick';
 import './style.css';
 import { useNavHeightContext } from '../../context/NavContext';
-import { useEffect } from 'react';
+import { useEffect, useMemo } from 'react';
 import { useUserStateContext } from '../../context/UserStateContext';
 
 export default function Header() {
@@ -67,15 +71,16 @@ export default function Header() {
           {
             breakpoint: 480,  // For extra small screens, show 1 item
             settings: {
-              slidesToShow: 1,
+              slidesToShow: 2,
             },
           },
         ],
       };
+      const iconStyle = useMemo(() => " pe-2 color_lightBlack", []);
     
     return(
         <Container
-            fluid="xxl"
+            fluid
             className="header_bg">
             <Row>
                 <Col
@@ -109,7 +114,7 @@ export default function Header() {
                             <Input
                                 className={inputClass}
                                 placeholder="İşin adı"
-                                // prefix={<img className="pe-4 icon_sm" src="/briefCase.png" alt="brief case" />}
+                                prefix={<FontAwesomeIcon icon={faBriefcase} className={iconStyle} />}
                             />
                         </Form.Item>
                         <div className="vr bg_green my-2"></div>
@@ -121,7 +126,7 @@ export default function Header() {
                             <Input
                                 className={inputClass}
                                 placeholder="İşçi Tapın"
-                                // prefix={<img className="pe-4 icon_sm" src="/gradCap.png" alt="graduation cap" />}
+                                prefix={<FontAwesomeIcon icon={faGraduationCap} className={iconStyle} />}
                             />
                         </Form.Item>
                         <Form.Item className='mb-0'>

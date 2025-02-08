@@ -73,7 +73,7 @@ const NotOnUserAuthPage = () => {
                         </Offcanvas.Header>
                         <Offcanvas.Body>
                             <Nav
-                                className="justify-content-end justify-content-lg-center align-items-center flex-grow-1 gap-5 gap-lg-5">
+                                className="justify-content-end justify-content-lg-center align-items-start align-items-lg-center flex-grow-1 gap-2 gap-lg-5">
                                 <Link
                                     to="/"
                                     className={navLinkClass}
@@ -110,7 +110,7 @@ const NotOnUserAuthPage = () => {
                                     Daxil ol</Link>
                                 <Link
                                     to="/register"
-                                    className={`${linkBtnClass} text_green bg-white`}
+                                    className={`${linkBtnClass} text_green bg-transparent`}
                                 >
                                     Qeydiyyat</Link>
                             </Stack>
@@ -129,8 +129,39 @@ export default function CustomNav({ userState }) {
     useEffect(() => {
         setNavHeight(navRef.current.offsetHeight + 1);
     }, []);
+    const [scrolled, setScrolled] = useState(false);  // Track if scrolled
+
+    const handleScroll = () => {
+        // Check the scroll position
+        if (window.scrollY > 50) {
+        setScrolled(true);  // Trigger when scrolled past 50px
+        } else {
+        setScrolled(false);
+        }
+    };
+
+    useEffect(() => {
+        // Add scroll event listener
+        window.addEventListener('scroll', handleScroll);
+
+        // Cleanup the event listener on component unmount
+        return () => {
+        window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+    
+    useEffect(() => {
+        // When `scrolled` state changes, add or remove class
+        if (navRef.current) {
+        if (scrolled) {
+            navRef.current.classList.add("custom_nav__onScroll", "rounded", "shadow");
+        } else {
+            navRef.current.classList.remove("custom_nav__onScroll", "rounded", "shadow");
+        }
+        }
+    }, [scrolled]); 
     return (
-        <div className='custom_nav' ref={navRef}>
+        <div className='custom_nav transition' ref={navRef}>
             {/* temporary code starts */}
             {userState === 'authorizing' ? (
                 <OnUserAuthPage />

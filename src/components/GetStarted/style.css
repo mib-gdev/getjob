@@ -1,0 +1,40 @@
+.bg_getStarted {
+    position: relative;
+    background-color: var(--lightGreen);
+    overflow: hidden;
+}
+.bg_getStarted::before,
+.bg_getStarted::after {
+    content: '';
+    display: block;
+    width: 100vw;
+    height: 61px;
+    background-repeat: no-repeat;
+    z-index: -1;
+}
+.bg_getStarted::before {
+    background-image: url('/public/wave-top.png');
+    background-position: top;
+    background-size: cover;
+}
+.bg_getStarted::after {
+    background-image: url('/public/wave-bottom.png');
+    background-position: bottom;
+    background-size: cover;
+}
+@media only screen and (min-width:1200px) {
+    .bg_getStarted::before {
+        height: 100px;
+    }
+    .bg_getStarted::after {
+        height: 100px;
+    }
+}
+@media only screen and (min-width:1920px) {
+    .bg_getStarted::before {
+        height: 140px;
+    }
+    .bg_getStarted::after {
+        height: 140px;
+    }
+}

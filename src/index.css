@@ -5,6 +5,7 @@
   /* color variables*/
   --lightGreen: rgba(231,255,243,1);
   --black: rgb(0, 0, 0);
+  --white: #fff;
   --borderBlack: rgba(0, 0, 0, 0.5);
   --green: rgba(0,191,98,1);
   --darkGreen: #0A7140;
@@ -121,11 +122,14 @@ button { min-height: 40px; }
 /* color styles */
 .border_black { border: 1px solid var(--black); }
 .border_green { border: 1px solid var(--green); }
+.border_darkGreen { border: 1px solid var(--darkGreen); }
 .text_white { color: var(--lightGreen); }
 .bg_white { background-color: var(--lightGreen); }
 .text_black { color: var(--black); }
 .text_green { color: var(--green); }
 .bg_green { background-color: var(--green); }
+.bg_darkGreen { background-color: var(--darkGreen); }
+.color_lightBlack { color: var(--borderBlack); }
 
 /* padding & margin */
 @media only screen and (min-width: 768px) {
@@ -167,6 +171,13 @@ button { min-height: 40px; }
 .vstack:focus-visible {
   outline: none;
 }
+/* customizing ant design form style */
+:where(.css-dev-only-do-not-override-cdzvx5).ant-input-outlined:focus, :where(.css-dev-only-do-not-override-cdzvx5).ant-input-outlined:focus-within {
+  box-shadow: none;
+}
+* {
+  outline: none;
+}
 /* navbar style */
 .custom_nav {
   position: absolute;
@@ -174,4 +185,13 @@ button { min-height: 40px; }
   right: 0;
   top: 0;
   z-index: 1;
+  transition: all 0.25s ease-in-out;
+}
+.custom_nav__onScroll {
+  position: fixed;
+  transform: translateY(1rem);
+  background: var(--white);
+  border-radius: 4px;
+  left: 5%;
+  right: 5%;
 }

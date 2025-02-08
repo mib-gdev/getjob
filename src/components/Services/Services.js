@@ -53,7 +53,7 @@ export default function Services() {
             <Row className="bg_service">
                 <Col xs={12}>
                     <h4 className="fs_xl fw-bold text-center mb-4 mb-lg-5">
-                        Layihəniz üçün ideal freelancerləri işə götürün
+                        Platforma necə işləyir
                     </h4>
                     <Container fluid>
                         <ServiceCardProvider>
